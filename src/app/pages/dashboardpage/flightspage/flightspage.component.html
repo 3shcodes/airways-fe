@@ -1,0 +1,49 @@
+<main class="flex flex-col h-full w-full m-3 p-3">
+    <div *ngIf="hasRoute('/dashboard/flights')">
+
+        <p class="text-4xl font-bold mb-8">Flights</p>
+        <div class="w-full flex">
+            <input class="w-full py-2 rounded px-3 focus:outline-none focus:ring-1 focus:ring-primary"  type="text" [(ngModel)]="squery" placeholder="Search Flights"/>
+            <Button className="bg-primary text-inbg px-6 py-2 rounded ml-2" value="Find" (conClick)="searchButt(squery)"></Button>
+        </div>
+        <div class="orClass flex items-center mt-3">
+            <hr class="h-1 w-full border-slate-300 mx-2"/>
+            <p class="text-xs mx-2 text-slate-500 "> OR </p>
+            <hr class="h-1 w-full border-slate-300 mx-2"/>
+        </div>
+        <div class="flex mb-4 my-2 justify-between items-center">
+            <select class="bg-white px-2 py-2 text-slate-400 rounded w-52" [(ngModel)]="fromPlace">
+                <option value="">Select from</option>
+                <option value="madras">Madras</option>
+                <option value="madurai">Madurai</option>
+                <option value="kashmir">Kashmir</option>
+                <option value="chennai">Chennai</option>
+            </select>
+            <p class="text-primary text-xl ">
+
+            <fa-icon class="mr-20" [icon]="leftArrow"></fa-icon>
+                <Button className="bg-secondary px-3 py-2 rounded" (conClick)="pickRoutes(fromPlace,toPlace)" value="Pick a Route"></Button>
+            <fa-icon class="ml-20" [icon]="rightArrow"></fa-icon>
+            </p>
+            <select class="bg-white px-2 py-2 text-slate-400 rounded w-52 someStyle" [(ngModel)]="toPlace">
+                <option value="">Select to</option>
+                <option value="madras">Madras</option>
+                <option value="madurai">Madurai</option>
+                <option value="kashmir">Kashmir</option>
+                <option value="chennai">Chennai</option>
+                <option value="america">America</option>
+            </select>
+        </div>
+        <div class="flightsList mt-4">
+            <p class="text-sm text-slate-400 px-1">Flight List</p>
+            <hr class="h-1 w-full border-slate-300 "/>
+            <p *ngIf="flights.length<1" class="mt-4 text-center">No Flights available rn</p>
+            <p *ngIf="loading" class="mt-4 text-center">Loading...</p>
+            <div *ngIf="!loading">
+
+                <FlightItem [flightItem]="flight" *ngFor="let flight of flights">{{flight.flightNumber}}</FlightItem>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</main>

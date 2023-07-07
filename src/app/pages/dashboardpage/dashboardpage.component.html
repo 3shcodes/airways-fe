@@ -1,0 +1,14 @@
+<div class="pageDiv min-h-screen">
+    <Header></Header>
+    <div class="flex flex-1 px-32">
+        <div class="w-52 flex flex-col pt-6 justify-between ">
+            <div class="flex flex-col">
+                <a [ngClass]=" hasRoute('/dashboard/'+it.hr)?'mb-2  px-4 py-2 bg-secondary rounded':'mb-2 px-4 py-2 rounded' " *ngFor="let it of navItems" routerLink="{{it.hr}}"><fa-icon class="mr-2" [icon]="it.icon"></fa-icon> {{it.name}}</a>
+            </div>
+            <a class="mb-2  px-4 py-2 text-center text-sm text-gray-400">Settings</a>
+        </div>
+        <div class="flex-1 ml-10">
+            <router-outlet ></router-outlet>
+        </div>
+    </div>
+</div>

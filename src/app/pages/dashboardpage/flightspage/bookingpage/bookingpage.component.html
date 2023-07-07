@@ -1,0 +1,50 @@
+
+<div class="flex flex-col h-full w-full ">
+    <p class="text-3xl text-center mb-14 mt-4">Ticket Booking Form</p>
+    <div class="mx-80">
+        <div class="my-4 flex justify-between">
+            <p class="text-lg mr-6 w-80 text-accent"> Flight Name: </p>
+            <p class="text-lg">{{ flightItem.flightName }}</p>
+        </div>
+        <div class="my-4 flex justify-between">
+            <p class="text-lg mr-6 w-80 text-accent"> Source: </p>
+            <p class="text-lg">{{ flightItem.source.toUpperCase() }}</p>
+        </div>
+        <div class="my-4 flex justify-between">
+            <p class="text-lg mr-6 w-80 text-accent"> Destination: </p>
+            <p class="text-lg">{{ flightItem.destination.toUpperCase() }}</p>
+        </div>
+        <div class="my-4 flex justify-between">
+            <p class="text-lg mr-6 w-80 text-accent"> Arrival Time: </p>
+            <p class="text-lg">{{ flightItem.arrTime }}</p>
+        </div>
+        <div class="my-4 flex justify-between">
+            <p class="text-lg mr-6 w-80 text-accent"> Depature Time: </p>
+            <p class="text-lg">{{ flightItem.deptTime }}</p>
+        </div>
+        <div class="my-4 flex justify-between">
+            <p class="text-lg mr-6 w-80 text-accent"> Seat Availability: </p>
+            <p class="text-lg">{{ flightItem.seatAvailability }}</p>
+        </div>
+        <div class="my-4 flex justify-between">
+            <p class="text-lg mr-6 w-80 text-accent"> Seat Rate: </p>
+            <p class="text-lg">{{ flightItem.seatRate }}</p>
+        </div>
+        <div class="my-4 flex justify-between">
+            <p class="text-lg mr-6 w-80 text-accent"> Choose Ticket Count: </p>
+            <div class="flex">
+                <button [disabled]="ticketCount<=0" class="w-10 bg-secondary " (click)="deFunc()">-</button>
+                <input class="text-base w-10 text-center outline-none" [(ngModel)]="ticketCount" />
+                <button [disabled]="ticketCount>=flightItem.seatAvailability" class="w-10 bg-secondary " (click)="inFunc()">+</button>
+            </div>
+        </div>
+        <div class="mt-20 my-4 flex justify-between">
+            <p class="text-2xl mr-6 w-80 text-accent"> Total Amount: </p>
+            <p class="text-2xl font-bold">Rs. {{ ticketCount*flightItem.seatRate }}</p>
+        </div>
+        <div class="mt-10 my-4 flex justify-end">
+            <a [ngClass]="'hover:border-inbg hover:bg-red-400 hover:text-inbg'" class="border-2 border-red-400 bg-inbg text-red-400 text-xl px-4 py-2 font-bold rounded mr-4 " routerLink="dashboard/flights">Cancel</a>
+            <button [disabled]="ticketCount<=0" [ngClass]="ticketCount>0 ?'hover:border-inbg hover:bg-primary hover:text-inbg':'cursor-not-allowed'" class="border-2 border-primary bg-inbg text-primary text-xl px-4 py-2 font-bold rounded" (click)="confirmBooking()">Confirm Booking</button>
+        </div>
+    </div>
+</div>

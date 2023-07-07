@@ -1,0 +1,40 @@
+<!-- "id": 2,
+"flightNumber": "AC201",
+"seatAvailability": 20,
+"source": "chennai",
+"destination": "america",
+"deptTime": "09:00 AM",
+"arrTime": "13:00 PM",
+"flightName": "Air India",
+"seatRate": 1500 -->
+<div  class="bg-white my-8 px-40 py-8 rounded mx-8">
+    <div class="flex justify-between items-center">
+
+        <div>
+            <fa-icon [icon]="rightArrow"></fa-icon>
+        </div>
+        <div class="w-[100px]">
+            <p class="text-accent">Arrival</p>
+            <p class="text-xl">{{ flightItem.source.toUpperCase() }}</p>
+            <p>{{ flightItem.arrTime }}</p>
+        </div>
+        <div class="flex flex-col text-center">
+            <p class="text-2xl text-bold">{{ flightItem.flightNumber }}</p>
+            <p class="text-accent">{{ flightItem.flightName }}</p>
+            <button [disabled]="flightItem.seatAvailability>0 ? false:true" class="place-self-center mt-6 mb-1" [ngClass]="flightItem.seatAvailability>0 ? 'bg-primary text-inbg py-2 px-3 rounded':'bg-slate-300 text-slate-500 py-2 px-3 rounded'" (click)="bookTicket()" >Book Tickets</button>
+            <p class="text-xs  text-slate-500"> Seats Available: {{ flightItem.seatAvailability }}</p>
+            <!-- <Button [disBtn]="'true'" class="place-self-center" [className]="flightItem.seatAvailability>20 ? 'bg-primary text-inbg py-2 px-3 rounded':'bg-slate-100 text-slate-400 py-2 px-3 rounded' "   value="Book Tickets"></Button> -->
+        </div>
+        <div class="w-[100px] text-right">
+            <p class="text-accent">Depature</p>
+            <p class="text-xl" >{{ flightItem.destination.toLocaleUpperCase() }}</p>
+            <p>{{ flightItem.deptTime }}</p>
+        </div>
+        <div>
+            <fa-icon [icon]="leftArrow"></fa-icon>
+        </div>
+    </div>
+    <!-- <p>{{flightItem?.deptTime}}</p>
+    <p>{{flightItem?.arrTime}}</p>
+    <p>{{flightItem?.seatRate}}</p> -->
+</div>

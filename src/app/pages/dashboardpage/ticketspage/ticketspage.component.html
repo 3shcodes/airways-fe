@@ -1,0 +1,9 @@
+<main class="flex flex-col h-full w-full m-3 p-3">
+    <div *ngIf="hasRoute('/dashboard/tickets')" >
+        <p class="text-4xl font-bold mb-8">Tickets</p>
+        <p *ngIf="tickets.length<1" class="mt-4 text-center">You are yet to buy a ticket</p>
+        <p *ngIf="loading" class="mt-4 text-center">Loading...</p>
+        <TicketComp *ngFor="let t of tickets" [ticketItem]="t"></TicketComp>
+    </div>
+    <router-outlet></router-outlet>
+</main>

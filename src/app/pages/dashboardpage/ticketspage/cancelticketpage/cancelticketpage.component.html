@@ -1,0 +1,24 @@
+<main class="flex flex-col h-full w-full m-3 p-3 ">
+
+    <a class="text-center w-[100px]  px-2 py-1 bg-secondary rounded" href="/dashboard/tickets" >
+        Go Back
+    </a>
+    <p class="text-2xl font-bold mt-8 mb-4 text-center">Confirm Cancel Ticket?</p>
+    <p class="text-center text-lg mx-52">
+        This cancel ticket page and the procedure is just for testing
+        purposes. If you really wish a refund from this, how about booking
+        tickets on a real plane and cancel it for fun and just have 25% of it
+        and have to regret for it.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham ? 
+    </p>
+    <div class="flex justify-center items-center my-4">
+        <input class="mr-2" type="checkbox" name="tanda" [(ngModel)]="agreeMent"  />
+        <p class="text-center">I've read all this and wasted my time successfully</p>
+    </div>
+    
+    <button [disabled]="!agreeMent" class="w-[100px] bg-red-400 px-2 py-1 place-self-center rounded" (click)="confirmCancel()">
+        Cancel
+    </button>
+
+</main>

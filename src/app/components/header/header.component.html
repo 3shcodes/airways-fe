@@ -1,0 +1,10 @@
+<div class="bg-white flex  min-h-[40px] border-b border-primary px-32 py-4 justify-between items-center">
+    <div class="">
+        <p class="text-primary text-2xl font-bold"><a routerLink="/">ttair</a></p>
+    </div>
+    <div class="">
+        <a *ngIf="user===null?true:false" class="text-inbg bg-primary px-3 py-2 rounded ml-2" routerLink="/signup" >Signup</a>
+        <a *ngIf="user===null?true:false" class="text-inbg bg-primary px-3 py-2 rounded ml-2" routerLink="/login">Login</a>
+        <a *ngIf="user===null?false:true" class="text-inbg bg-primary px-3 py-2 rounded ml-2 cursor-pointer" (click)="logOutFunc()">Logout</a>
+    </div>
+</div>
